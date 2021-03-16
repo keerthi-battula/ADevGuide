@@ -4,6 +4,6 @@ COPY ./src ./src
 RUN mvn dependency:go-offline -B
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
-WORKDIR /adevguide
+WORKDIR /dockerdir
 COPY --from=maven target/SimpleJavaProject-*.jar ./SimpleJavaProject.jar
 CMD ["java", "-jar", "./SimpleJavaProject.jar"]
